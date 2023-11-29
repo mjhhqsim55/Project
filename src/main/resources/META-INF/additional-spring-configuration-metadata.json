@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "dtrc",
+  "type": "java.lang.Boolean",
+  "description": "A description for 'dtrc'"
+}]}

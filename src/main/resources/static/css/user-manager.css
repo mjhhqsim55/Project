@@ -1,0 +1,54 @@
+@import url(commons.css);
+
+#other #container {
+	 
+	width: 550px;
+	height: 200px;
+	
+}
+
+#other #container #search {
+	margin: auto ;  
+	width: 501px;
+}
+
+#other #container #search input[type='text'] {
+	height: 26px ;  
+	border: 1px solid black ; 
+	border-radius: 0px;
+	background-color: white;
+	outline-width: 0px;  
+	width: 422px;
+}
+
+#other #container #search input[type='text']:focus {
+	height: 26px ;  
+	border-width: 1px ; 
+	border: 1px solid black ; 
+	border-radius: 0px;
+	background-color: white;
+	outline-width: 0px;  
+	width: 422px;
+	text-indent: 5px;
+}
+
+#other #container #search input[type='submit'] {
+	 width: 86px ; 
+	 height: 26px;
+	 padding: 0px;
+	 margin: -6px;
+     background-color: buttonface;
+	 color: buttontext;
+	 padding-block: 1px;
+	 padding-inline: 6px;
+	 border-width: 1px;
+	    
+}
+
+#other #container #label {
+	margin: 20px auto 0px auto ;  
+	height: 45px;
+	width: 501px;
+	color: blueviolet;
+	 
+}

@@ -1,0 +1,54 @@
+@import url(commons.css);
+@import url(commons_banner.css);
+
+#nav #nav_container {
+	display: grid;
+	    width: 100%;
+	    grid-auto-flow: column;
+	    grid-column: span 4;
+	    grid-gap: 10px;
+	   /* grid-template-rows: repeat(2,1fr); */
+	    justify-items: center; 
+}
+
+
+
+#other #banner {
+    height: 281px;
+	width: 50%;
+	display: inline-block;
+	 
+}
+
+#other #hot_sec {
+    height: 281px;
+	width: 49%;
+	display: inline-block;
+	margin-top:0px;
+	overflow: hidden;
+	/* background-color:  antiquewhite; */
+}
+
+#other #hot_sec  #hot_sec_container{
+	margin: auto;
+	width: 90%;
+	background-color:  mediumaquamarine;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+#other #hot_sec  #hot_sec_container div {
+	margin-bottom: 5px ;
+	height: 45px;
+	line-height: 45px;
+	background-color:  aquamarine;
+	text-align: center;
+	 
+}
+#other #hot_sec  #hot_sec_container div:hover { 
+	background-color:  cadetblue ; 
+}
+
+#other #hot_sec  #hot_sec_container #bottom {
+	margin-bottom: 0px ;
+}

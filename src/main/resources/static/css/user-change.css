@@ -1,0 +1,74 @@
+@import url(commons.css);
+#other #user_container {
+    width: 800px;
+	margin: 0px 55px; 
+}
+
+#other #user_container #image {
+	height: 100%;
+	width: 26%;
+	display: inline-block;
+	vertical-align: 298px ;
+}
+
+#other #user_container #image img {
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+}
+
+#other #user_container #context {
+	width: 59%;
+	display: inline-block;
+	vertical-align: top;
+	/* margin-left: 100px; */
+
+}
+
+#other #user_container #context #context_box {
+    margin-left: 80px; 
+}
+
+#other #user_container #context #context_box #error span {
+   width: 100%;
+   color:red ; 
+   font-size: 12px;
+}
+
+#other #user_container #context #context_box div {
+    color:#4d4d4d ; 
+	font-size: 15px;
+	margin-top: 5px;
+}
+
+#other #user_container #context #context_box #introduction_information {
+    font-size: 11px;
+	color: #9b919b;
+	margin-top: 11px;
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	margin-bottom: 21px;
+}
+
+#other #user_container #context #context_box #introduction_information div {
+   width: 400px;
+   text-overflow: initial;
+   word-wrap: break-word;
+}
+
+#other #user_container #context #context_box div div {
+    color: #626262;
+    display: inline-block;
+}
+
+#other #user_container #context #context_box div span {
+	margin-right: 10px;
+    color: #626262; 
+    width: 85px;
+    display: inline-block;
+}
+
+#other #user_container #context #context_box #change {
+	margin: 28px 22px 10px 214px ; 
+}
+

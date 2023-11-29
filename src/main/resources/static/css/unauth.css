@@ -1,0 +1,8 @@
+@import url(search.css);
+#other #container #search h1 {
+	text-align: center;
+}
+
+#other #container #search div {
+	 margin: 65px 214px
+}

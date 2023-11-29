@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>主页</title>
+		<link rel="stylesheet" href="/css/register.css" type="text/css" />
+	</head>
+	<body>
+		<div id='container'> 
+			<div id='title'>
+				<div id='left'><h1>商务Project</h1></div>
+				<div id='s_r'>
+				</div>
+			</div>
+			
+			<div id='nav'>
+				<div><a href='/'>主页</a>>注册</div>
+			</div>
+			
+			<div id='other'>
+				<div id='container'>
+					
+					<div id='form_dir'>
+						<form action='/register/prod' method='post' 
+						   enctype="application/x-www-form-urlencoded">
+							<div class='item'>
+								<span class='label'>username: </span>
+								<span class='text'><input type='text' name='username'></span>
+							</div>
+							<div class='item'>
+								<span class='label'>password: </span>
+								<span class='text'><input type='password' name='password'></span>
+							</div>
+							<div class='item'>
+								<span class='label'>e-mail: </span>
+								<span class='text'><input type='email' name='eMail'></span>
+							</div>
+							
+							<div class='item'>
+								<div class='error_message'>
+									<span th:if="${NotEmpty_User_Username!=null}" >Username 不能是空！</span> <br />
+									<span th:if="${Email_User_EMail != null}" >Email 不正确！</span> <br />
+									<span th:if="${RESULT_USER_1!=null}" >已有此用户！不能重复注册</span>
+								</div>
+							</div>
+							
+							<div id='submit_item-1' class='item'>
+								<span class='submit_item'><input type="submit" /> </span>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+			<div id='cr'>
+				<div id='char'>copyright ©2013</div>
+		    </div>
+		
+		</div>
+    </body>
+	 
+	
+</html>

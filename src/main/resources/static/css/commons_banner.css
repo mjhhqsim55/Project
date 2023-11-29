@@ -1,0 +1,74 @@
+#banner_container {
+	height: 100%;
+	width: 99.8%;
+	 overflow: hidden;
+	 position: relative;
+}
+
+#banner_container #banner_panel {
+	height: 10px;
+	width: 10px;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+}
+
+#banner_container #banner_contoller {
+	height: 20px;
+
+    z-index: 99999;
+    margin: auto;
+	position: absolute;
+	top: 121px ; 
+}
+
+#banner_container #banner_contoller div {
+    float: left;
+    border-radius: 10px;
+	text-align: center;
+	line-height: 20px;
+	margin: 0 5px;
+	font-size: 12px;
+	color: #929292;
+	cursor: default;
+}
+
+#banner_container #banner_contoller #banner_left {
+	height: 20px;
+	width: 20px;
+    left: 0px;
+	right: 0px;
+	background-color: aquamarine; 
+}
+
+#banner_container #banner_contoller #banner_center {
+  margin-top: 2px ; 
+}
+
+#banner_container #banner_contoller #banner_center div {
+    height: 15px;
+	width: 15px;
+	margin: 0px 5px; 
+	display: inline-block;
+	line-height: 15px;
+	background-color: aquamarine; 
+	 
+}
+
+#banner_container #banner_contoller #banner_right {
+	height: 20px;
+	width: 20px;
+    margin: auto;
+	background-color: aqua;
+	left: 0px;
+	right: 0px;
+}
+
+#banner_container #banner_panel div {
+	height: 10px;
+	width: 10px;
+	left:0px ;
+	right: 0px;
+    float: left;
+}
+

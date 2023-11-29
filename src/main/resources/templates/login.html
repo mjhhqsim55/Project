@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<title>主页</title>
+		<link rel="stylesheet" href="/css/login.css" type="text/css" />
+	</head>
+	<body>
+		<div id='container'> 
+			<div id='title'>
+				<div id='left'><h1>商务Project</h1></div>
+				<div id='s_r'>
+			    </div>
+			</div>
+			
+			<div id='nav'>
+				<div><a href='/'>主页</a>>登录</div>
+			</div>
+			
+			<div id='other'>
+				<div id='container'>
+					<div id='form_dir'>
+						<form action='/user/proc' method='post' 
+						   enctype="application/x-www-form-urlencoded">
+							<div class='item'>
+								<span class='label'>username: </span>
+								<span class='text'><input type='text' name='username'></span>
+							</div>
+							<div class='item'>
+								<span class='label'>password: </span>
+								<span class='text'><input type='password' name='password'></span>
+							</div>
+							<div class='item'>
+								<span class='label'>remember: </span>
+								<span class='text'><input type="checkbox" name="remember-me" ></span>
+							    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+							</div>
+							
+							<div class='item'>
+								<div class='error_message'>
+									<div th:text="${session.SPRING_SECURITY_LAST_EXCEPTION}">Invalid username and password.</div>
+		                        </div>
+							</div>
+							
+							<div class='item'>
+								<div>
+									<a href="/register">注册</a> 
+								</div>
+							</div>
+							
+							<div id='submit_item-1' class='item'>
+								<span class='submit_item'><input type="submit" /> </span>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+			<div id='cr'>
+				<div id='char'>copyright ©2013</div>
+		    </div>
+		
+		</div>
+    </body>
+	 
+	
+</html>

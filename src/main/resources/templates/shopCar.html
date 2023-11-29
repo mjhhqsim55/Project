@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>shopCar</title>
+	<link rel="stylesheet" href='/css/shopCar.css' type="text/css" />
+</head>
+
+<body>
+	<div id='container'>
+		<div id='title'>
+			<div id='left'>
+				<h1>商务Project</h1>
+			</div>
+			<div id='s_r'>
+				<div id='right'>
+					<div th:if="${session.user!=null}" id='user_message_1'>
+						<div id='user_panel'>
+							<div id='user_panel_1'></div>
+							<div id='user_panel_2'>
+								<div><a href="/user/message">用户信息 </a></div>
+								<div><a href="/user/shop/car"> ShopCar </a></div>
+								<div>
+									<form action='/out' method="post" enctype="application/x-www-form-urlencoded">
+										<input type="hidden" th:name="${_csrf.parameterName}"
+											th:value="${_csrf.token}" />
+										<input type="submit" value="exit" />
+									</form>
+								</div>
+							</div>
+						</div>
+						<img src="/img/ps5.png" />
+						<div th:text="${session.user.username}" id='user_name'>用户</div>
+					</div>
+					<div id='sec1'>
+						<span th:if="${session.user==null}"> <a href='/login'>登录</a></span>
+						<span th:if="${session.user!=null}"> <a href='/login'>重新登录</a></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id='nav'>
+			<div><a href='/'>主页</a>&gt;shopCar</div>
+		</div>
+
+		<div id='other'>
+			<div id='container'>
+				<div id='users'>
+					
+					<div id='panel'>
+						<div id="itemTitle" class='item'>
+							<div class='id'><span class='label'>prod</span></div>
+							<div class='numberItem'><span class='label'>编码</span></div>
+							<div class='date'><span class='label'>日期</span></div>
+							<div class='pay'><span class='label'>是否支付</span></div>
+							<div class='remove'> <span class='label'> remove</span></div>
+						</div>
+						<div class='item' th:each="item : ${shopCar.buyItems}">
+							<div class='id'><span><a href="/" th:href="@{/prodc/data/{pid}(pid=${item.prod.pid})}" th:text="${item.prod.name}">1</a></span></div>
+							<div class='numberItem'><span th:text="${item.numberItem}">root</span></div>
+							<div class='date'><span th:text="${#dates.format(item.date, 'yyyy-MM-dd HH:mm:ss')}">2022</span></div>
+							<div class='pay'><span th:text="${item.isPay}?'yes':'no'">root</span></div>
+							<div class='remove'> <span><a href='/'
+										th:href='@{/user/remove/items/{id}(id=${item.bid})}'>remove</a></span>
+							</div>
+						</div>
+					</div>
+
+<!--					<div id='page'>
+						<span th:if="${Userdata.isFirstPage!=true}"><a href='/user/manager/main/1' th:href="@{/user/manager/main/{prePage}/{search}(prePage=${Userdata.prePage} , search=${search})}" >
+								&lt; </a></span>
+						<div th:each="n : ${Userdata.navigatepageNums}">		
+							<span><a href='/' th:text="${n}" th:href="@{/user/manager/main/{page}/{search}(page=${n} , search=${search})}">1</a></span>
+							 
+						</div>
+						<span th:if="${Userdata.isLastPage!=true}"><a href='/user/manager/main/1' th:href="@{/user/manager/main/{nextPage}/{search}(nextPage=${Userdata.nextPage} , search=${search})}" >
+								&gt; </a></span>
+					</div>-->
+				</div>
+			</div>
+		</div>
+
+		<div id='cr'>
+			<div id='char'>copyright ©2013</div>
+		</div>
+
+	</div>
+	<script src='/webjars/jquery/3.6.4/jquery.js' type='text/javascript' ></script>
+	<script src='/js/index.js' type='text/javascript' /></script>
+	 
+	 
+</body>
+
+</html>

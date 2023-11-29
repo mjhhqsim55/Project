@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="im.dao.mapper.ActivityMapper">
+
+   
+  <resultMap type="im.dao.Prod" id="prod">
+   <id property="pid" column="pid" />
+   <result property="name" column="name" />
+   <result property="stock" column="stock" />
+   <result property="price" column="price" />
+   <result property="presentation" column="presentation" />
+   <collection property="images" ofType="im.dao.ImageEntity" 
+        select="im.dao.mapper.ActivityMapper.images" column="pid">
+     <id property="id" column="id"/>
+     <result property="imageName" column="IMAGE_NAME"/>
+     <result property="path" column="PATH"/>
+   </collection>
+  </resultMap>
+
+  <select id="prods" resultMap="prod">
+   SELECT distinct p.pid , p.name , p.stock , p.price, p.presentation  
+      FROM  ACTIVITY t JOIN ACTIVITY_PRODS pr ON t.id = pr.ACTIVITY_ID JOIN PROD p 
+      ON pr.PRODS_PID = p.pid WHERE t.id = ${aid} order by p.pid
+  </select>
+  
+  <select id="images" resultType="im.dao.ImageEntity">
+    SELECT img.id , img.IMAGE_NAME , img.PATH FROM PROD p JOIN PROD_IMAGE p_img 
+    ON p.pid = p_img.prod_pid JOIN IMAGE_ENTITY img 
+    ON p_img.IMAGES_ID = img.ID WHERE p.pid = ${pid}
+  </select>
+   
+
+  
+</mapper>  
+

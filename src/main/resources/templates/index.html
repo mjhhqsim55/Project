@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<title>主页</title>
+		<link rel="stylesheet" href="css/index.css" type="text/css"/>
+	</head>
+	<body>
+		<div id='container'> 
+			<div id='title'>
+				<div id='left'><h1>商务Project</h1></div>
+				<div id='s_r'>
+					<div id='search'>
+						<form action="/search/1" method="post" enctype="application/x-www-form-urlencoded">
+							<input id='search_1' type='text' name='search' />
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+							<input type="submit" value="Search"/>
+						</form>
+					</div> 
+
+					<div id='right'>
+						<div  th:if="${session.user!=null}" id='user_message_1' >
+							<div id='user_panel'>
+								<div id='user_panel_1'>
+								</div>
+								<div id='user_panel_2'>
+									<div><a href="/user/message">用户信息 </a></div>
+									<div><a href="/user/shop/car"> ShopCar </a></div>
+									<div>
+									<form action='/out' method="post" 
+									enctype="application/x-www-form-urlencoded">
+									 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                                     <input type="submit" value="exit"/>
+									</form></div>
+								</div>
+							</div>
+							<img src="img/ps5.png"/>
+							<div th:text="${session.user.username}" id='user_name'>用户</div>
+						</div>
+						<div id='sec1'> 
+							<span th:if="${session.user==null}"> <a href='/login'>登录</a></span>
+							<span th:if="${session.user!=null}"> <a href='/login'>重新登录</a></span>
+						</div>
+					</div>
+				   
+				</div>
+		    </div>
+
+			<div id='nav'>
+				<div id='nav_container'>
+					<div th:each="category : ${categorys}"><a th:href='@{/prodc/{id}/1(id=${category.cid})}'><span th:text="${category.categoryName}">数码</span></a></div> 
+				</div>
+		    </div>
+			
+			<div id='other'>
+			   <div id='banner'>
+				   <div id='banner_container'>
+					   <div id='banner_contoller'>
+					    <div id='banner_left'>&lt;</div>
+						 <div id='banner_center'>
+					     </div>
+					    <div id='banner_right'>&gt;</div>
+					   </div>
+					   <div id='banner_panel'>
+						   <div th:each="banner : ${banners}">
+							   <a th:href="@{/prodc/data/{id}(id=${banner.prod.pid})}">
+								   <img src="img/switch.png" th:attr="src=${#strings.concat(banner.prod.images[0].path,'/',banner.prod.images[0].imageName)}" width="100%" height="100%"/>
+							   </a>
+						   </div>
+					  </div>
+				    </div>
+			   </div>
+			   <div id='hot_sec'>
+				   <div id='hot_sec_container'>
+					   <div th:each="activity , iterStat : ${activitys}"  th:id="${iterStat.last}?'bottom'"  >
+						   <a href="/activity" th:href="@{/activity/{id}/1(id=${activity.id})}"><span th:text="${activity.name}">清仓特卖</span></a>
+					   </div>
+					  <!-- <div id='bottom'><a href="/activity">￥9.9包邮</a></div>-->
+				   </div>
+			   </div>
+			</div>
+			
+			<div id='cr'>
+				<div id='char'>copyright ©2013</div>
+		    </div>
+		
+		</div>
+    </body>
+	<script src="/js/commons_banner.js" type="text/javascript"></script>
+	<script src="/js/index.js" type="text/javascript"></script> 
+	<script type="text/javascript">
+		banner(true) ; 
+		
+	</script>
+	
+</html>
+
+
+

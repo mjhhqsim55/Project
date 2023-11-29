@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="im.dao.mapper.UserMapper">
+
+   <resultMap type="im.dao.User" id="user_roles">
+    <id property="uid" column="uid" />
+    <result property="username" column="username" />
+    <result property="password" column="password" />
+    <result property="isEnable" column="IS_ENABLE" />
+    <collection property="roles" ofType="im.dao.Role">
+      <id property="rid" column="rid" />
+      <result property="rname" column="rname" />
+      <collection property="menus" ofType="im.dao.Menu">
+        <id property="mid" column="mid" />
+        <result property="mname" column="mname" />
+      </collection>
+    </collection>
+   </resultMap>
+  
+   <select id="userNameValidate" resultMap="user_roles" >
+     SELECT u.uid , u.username , u.password , u.IS_ENABLE ,  r.rid , r.rname , m.mid , m.mname   FROM USER u JOIN USER_ROLE u_r ON 
+        u.uid = u_r.user_uid JOIN ROLE r ON u_r.roles_rid = r.RID JOIN ROLE_MENU r_m ON r.RID = r_m.ROLE_RID JOIN menu m
+           ON m.MID = r_m.MENUS_MID where u.username = #{username}
+   </select>
+   
+   <select id="user" resultType="im.dao.User" >
+     SELECT uid , username , e_Mail , password , register_Date , IS_ENABLE FROM USER 
+       where username = #{username}
+   </select>
+   
+   <select id="userSearch" resultType="im.dao.User" >
+     SELECT distinct uid , username , e_Mail , password , register_Date , IS_ENABLE FROM USER 
+       where uid = #{uid} or username like '%${username}%' 
+   </select>
+  
+</mapper>  
+

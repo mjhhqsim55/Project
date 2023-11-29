@@ -1,0 +1,93 @@
+@import url(commons.css);
+
+#other {
+	width: 100%;
+	height: 800px;
+	padding: 0px;
+    margin: 0px; 
+}
+
+#other #container #users{
+	width: 100%; 
+}
+
+#other #container #users #up {
+	font-size: 12px;
+	margin: 5px;
+}
+
+#other #container #users #search-result{
+	 
+	margin: 5px;
+}
+
+#other #container #users #search-result span{
+    color: red;	 
+	margin: 5px;
+}
+
+#other #container #users #panel{
+	 width: 100%;
+	 margin-top: 22px;
+}
+
+#other #container #users #panel .item {
+	 width: 100%;
+	 height: 55px;
+	 margin-bottom: 2px;
+	 border : 1px solid rgb(192, 192, 192);
+	 display: flex ; 
+	 flex-direction: row;
+    justify-content: space-around;
+}
+
+#other #container #users #panel .item div {
+	display: inline-block ; 
+	vertical-align: middle;
+	margin : auto;
+	width: 155px;
+}
+
+#other #container #users #panel .item form  {
+	display: inline-block ; 
+}
+
+#other #container #users #panel .item .label { 
+	 
+	margin-right:10px ; 
+	color:cadetblue ; 
+	
+}
+
+
+
+#other #page {
+	height: 55px;
+	width: 260px;
+	margin: 22px auto 5px auto;
+}
+
+#other #page div {
+  display: inline-block;
+}
+
+#other #page span {
+	background-color: #989898;
+	width: 26px;
+	height: 24px;
+	display: inline-block;
+	border-radius: 50%;
+	text-align: center;
+	margin: 2px 1px;
+}
+#other #page span:hover {
+	background-color: white;
+}
+
+#other #page #page_1 {
+	background-color: inherit;
+}
+
+
+
+

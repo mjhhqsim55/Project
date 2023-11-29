@@ -1,0 +1,94 @@
+@import url(commons.css);
+#other #container {
+	/* background-color: blue ; */
+	margin: auto;
+	height: 99%; 
+	width: 99%; 
+}	 
+
+#other #container #row {
+  display: flex;
+  justify-content: space-between ; 
+  margin: 0px 0px 15px 0px ; 
+}
+
+#other #container #row #col {
+	/* background-color: blue ; */                         
+	background-color: lightblue; 
+	width: 226px;
+	height: 256px;
+	margin: 0px 0px;
+	font-size: 22px;
+	border: 2px solid white ;
+	
+}
+
+#other #container #row #col div span {
+	margin-right: 12px;
+}
+
+#other #container #row #col:hover {
+   border: 0px solid blue;
+}
+
+#other #container #row #col div:nth-child(1) {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	height: 34px;
+	line-height: 32px;
+	text-indent: 6px;
+	color: blue ;
+	padding-right: 10px;
+}
+#other #container #row #col div:nth-child(2) {
+	 
+	height: 192px;
+}
+#other #container #row #col div:nth-child(3) {
+	 
+	height: 32px;
+	font-size: 16px;
+	line-height: 32px;
+	text-indent: 6px;
+	color: blueviolet ; 
+	font-size: 16px;
+	display: flex;
+	justify-content: space-between;
+}
+
+#other #container #row #col img {
+	width : 100% ; 
+ 
+}
+
+#other #page {
+	height: 55px;
+	width: 260px;
+	margin: 22px auto 5px auto;
+}
+
+#other #page div {
+	display: inline-block;
+}
+
+#other #page span {
+	background-color: #989898;
+	width: 26px;
+	height: 24px;
+	display: inline-block;
+	border-radius: 50%;
+	text-align: center;
+	margin: 2px 1px;
+}
+#other #page span:hover {
+	background-color: white;
+}
+
+#other #page #page_1 {
+	background-color: inherit;
+}
+
+
+
+

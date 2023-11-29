@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>manager</title>
+	<link rel="stylesheet" href='/css/manager.css' type="text/css" />
+</head>
+
+<body>
+	<div id='container'>
+		<div id='title'>
+			<div id='left'>
+				<h1>商务Project</h1>
+			</div>
+			<div id='s_r'>
+				<div id='right'>
+					<div th:if="${session.user!=null}" id='user_message_1'>
+						<div id='user_panel'>
+							<div id='user_panel_1'></div>
+							<div id='user_panel_2'>
+								<div><a href="/user/message">用户信息 </a></div>
+								<div><a href="/user/shop/car"> ShopCar </a></div>
+								<div>
+									<form action='/out' method="post" enctype="application/x-www-form-urlencoded">
+										<input type="hidden" th:name="${_csrf.parameterName}"
+											th:value="${_csrf.token}" />
+										<input type="submit" value="exit" />
+									</form>
+								</div>
+							</div>
+						</div>
+						<img src="/img/ps5.png" />
+						<div th:text="${session.user.username}" id='user_name'>用户</div>
+					</div>
+					<div id='sec1'>
+						<span th:if="${session.user==null}"> <a href='/login'>登录</a></span>
+						<span th:if="${session.user!=null}"> <a href='/login'>重新登录</a></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id='nav'>
+			<div><a href='/'>主页</a>>manager</div>
+		</div>
+
+		<div id='other'>
+			<div id='container'>
+				<div id='users'>
+					<div id='up'><a href='/user/manager/search'>重新查找</a></div>
+					<div id='search-result'>查找"<span th:text="${search}">result</span>"结果</div>
+					<div id='panel'>
+						<div class='item' th:each="user : ${Userdata.list}">
+							<div id='uid'><span class='label'>uid</span> <span th:text="${user.uid}">1</span></div>
+							<div id='username'><span class='label'>username</span> <span
+									th:text="${user.username}">root</span></div>
+							<div><span class='label'>enable:</span>
+								<form action='#' method='post' enctype="application/x-www-form-urlencoded">
+									<input type="hidden" name="uid" th:value="${user.uid}" />
+									<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+									<input type="checkbox" name='user' th:checked="${user.isEnable}" checked="checked"/>
+								</form>
+							</div>
+							<div id='authorize'> <span><a href='/'
+										th:href='@{/user/manager/authorize/{uid}/{currentPage}/{search}(uid=${user.uid}, currentPage=${currentPage} , search=${search})}'>authorize管理</a></span>
+							</div>
+						</div>
+					</div>
+
+					<div id='page'>
+						<span th:if="${Userdata.isFirstPage!=true}"><a href='/user/manager/main/1' th:href="@{/user/manager/main/{prePage}/{search}(prePage=${Userdata.prePage} , search=${search})}" >
+								&lt; </a></span>
+						<div th:each="n : ${Userdata.navigatepageNums}">		
+							<span><a href='/' th:text="${n}" th:href="@{/user/manager/main/{page}/{search}(page=${n} , search=${search})}">1</a></span>
+							 
+						</div>
+						<span th:if="${Userdata.isLastPage!=true}"><a href='/user/manager/main/1' th:href="@{/user/manager/main/{nextPage}/{search}(nextPage=${Userdata.nextPage} , search=${search})}" >
+								&gt; </a></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id='cr'>
+			<div id='char'>copyright ©2013</div>
+		</div>
+
+	</div>
+	<script src='/webjars/jquery/3.6.4/jquery.js' type='text/javascript' ></script>
+	<script src='/js/index.js' type='text/javascript' /></script>
+	<script src='/js/manager.js' type='text/javascript' /></script>
+	 
+</body>
+
+</html>

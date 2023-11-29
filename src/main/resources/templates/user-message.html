@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<title>prod</title>
+		<link rel="stylesheet" href="/css/user-message.css" type="text/css"/>
+	</head>
+	<body>
+		<div id='container'> 
+			<div id='title'>
+				<div id='left'><h1>商务Project</h1></div>
+				<div id='s_r'>
+				   
+				</div>
+			</div>
+			
+			<div id='nav'>
+				<div><a href='/'>主页</a>>用户信息</div>
+			</div>
+			
+			<div id='other'>
+			 <div id='user_container'>
+				<div id='image' alt='用户信息'>
+                   	<img src='/img/ps4.png' />				
+				</div>
+				<div id='context'>
+				    <div id='context_box'>
+						<div th:text="${session.user.username}" >username</div>
+						<div><span>UID:</span><div th:text="${session.user.uid}">1</div></div>
+						<div><span>注册时间:</span><div th:text="${#dates.format(session.user.registerDate, 'yyyy-MM-dd HH:mm:ss')}">2022-01-01</div></div>
+						<div><span>E-mail:</span><div th:text="${session.user.eMail}">10000</div></div>
+
+					    <div id='change'>
+						   <div>  <div> <a href="/user/message/change/page">修改用户</a>   </div> </div>
+						</div>
+
+						<div th:if="${! #lists.isEmpty(session.user.roles)}" > 
+							<a href="/user/manager/search">manager</a>  
+					    </div>
+
+					</div>
+					 
+				</div>
+		    </div>
+		</div>
+		<div id='cr'>
+			<div id='char'>copyright ©2013</div>
+		</div>
+    </body>
+
+</html>

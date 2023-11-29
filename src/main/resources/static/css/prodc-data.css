@@ -1,0 +1,78 @@
+@import url(commons.css);
+@import url(commons_banner.css);
+
+#other #prodc_container {
+    width: 800px;
+	margin: 0px 55px; 
+}
+
+#other #prodc_container #image {
+	height: 200px;
+	width: 200px;
+	display: inline-block;
+	vertical-align: 228px ;
+}
+
+#other #prodc_container #image img {
+	height: 100%;
+	width: 100%;
+}
+
+#other #prodc_container #context {
+	width: 59%;
+	display: inline-block; 
+	vertical-align: 228px; 
+	/* margin-left: 100px; */
+
+}
+
+#other #prodc_container #context #context_box {
+    margin-left: 80px; 
+}
+
+#other #prodc_container #context #context_box input[type='number'] {
+    text-indent: 5px;
+}
+
+
+
+#other #prodc_container #context #context_box #shop div {
+    margin-right: 5px; 
+}
+
+#other #prodc_container #context #context_box div {
+    color:#4d4d4d ; 
+	font-size: 15px;
+}
+
+#other #prodc_container #context #context_box #introduction_information {
+    font-size: 11px;
+	color: #9b919b;
+	margin-top: 11px;
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	margin-bottom: 21px;
+}
+
+#other #prodc_container #context #context_box #introduction_information div {
+   width: 400px;
+   text-overflow: initial;
+   word-wrap: break-word;
+}
+
+#other #prodc_container #context #context_box div:first-child {
+    padding: 10px 0px; 
+	font-size: 21px;
+}
+
+
+#other #prodc_container #context #context_box div div {
+    color: #626262;
+    display: inline-block;
+}
+
+#other #prodc_container #context #context_box div span {
+	margin-right: 10px;
+    color: #626262;; 
+}
+

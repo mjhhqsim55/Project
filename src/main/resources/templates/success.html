@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<title>success</title>
+		<link rel="stylesheet" href='/css/success.css' type="text/css"/>
+	</head>
+	<body>
+		<div id='container'> 
+			<div id='title'>
+				<div id='left'><h1>商务Project</h1></div>
+				<div id='s_r'>
+				  <div id='right'>
+						<div  th:if="${session.user!=null}" id='user_message_1' >
+							<div id='user_panel'>
+								<div id='user_panel_1'></div>
+								<div id='user_panel_2'>
+									<div><a href="/user/message">用户信息 </a></div>
+									<div><a href="/user/shop/car"> ShopCar </a></div>
+									<div>
+									<form action='/out' method="post" 
+									enctype="application/x-www-form-urlencoded">
+									 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                                     <input type="submit" value="exit"/>
+									</form></div>
+								</div>
+							</div>
+							<img src="/img/ps5.png"/>
+							<div th:text="${session.user.username}" id='user_name'>用户</div>
+						</div>
+						<div id='sec1'> 
+							<span th:if="${session.user==null}"> <a href='/login'>登录</a></span>
+							<span th:if="${session.user!=null}"> <a href='/login'>重新登录</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id='nav'>
+				<div><a href='/'>主页</a>>success</div>
+			</div>
+			
+			<div id='other'>
+				<div id='container'>
+					<div id='search'>
+						<span th:if="${register != null}">注册</span>
+						<span th:if="${login != null}">登录</span>
+						<h1> success</h1>
+						 
+						<div th:if="${login != null}">
+							<form action='/out' method="post" 
+									enctype="application/x-www-form-urlencoded">
+							  <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                              <input type="submit" value="exit"/>
+							</form>
+						</div>
+						 
+					</div>
+				</div>
+            </div>
+			
+			<div id='cr'>
+				<div id='char'>copyright ©2013</div>
+		    </div>
+		
+		</div>
+		<script src="/js/index.js" type="text/javascript"></script> 
+    </body>
+	
+</html>
+

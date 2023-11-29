@@ -1,0 +1,5 @@
+/*C3*/SET SCHEMA PUBLIC
+ \u000acreate table PERSISTENT_LOGINS1 ( "USERNAME" varchar(200) not null, "SERIES" varchar(200) not null, "TOKEN" varchar(200) not null, "LAST_USED" timestamp not null) 
+ \u000acreate table PERSISTENT_LOGINS11 ( "USERNAME" varchar(200) not null, "SERIES" varchar(200) not null unique, "TOKEN" varchar(200) not null, "LAST_USED" timestamp not null) 
+ \u000acreate table persistent_logins1111 ( "USERNAME" varchar(200) not null, "SERIES" varchar(200) not null, "TOKEN" varchar(200) not null, "LAST_USED" timestamp not null) 
+DISCONNECT
