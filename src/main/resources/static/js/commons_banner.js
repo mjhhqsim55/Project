@@ -1,8 +1,14 @@
+/*
+@author hqs
+version v0.5
+*/
+
 var banner_panel ; 
 var width
 var height ; 
 var banner_right ; 
 var banner_center ; 
+
 
 var banner =  function(n){
 	 
