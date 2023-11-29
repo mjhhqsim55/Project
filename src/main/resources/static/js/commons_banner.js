@@ -45,93 +45,94 @@ var banner =  function(n){
 	var current = 0 ; 
 	var n_ = 0 ; 
 	var x = 15 ; 
-	var running = false ;  
+    var run = null ; 
 	var rightMove = function(n , x){
-	  if(index>=len-1){
-		index = 0 ; 
-		left = 0 ; 
-		n_ = 0 ; 
-		banner_centerDivs[index].style.backgroundColor = 'blue' ; 
-		banner_centerDivs[len-1].style.backgroundColor = 'aquamarine' ; 
-		banner_panel.style.left = 0+'px' ; 
-	  }else{
-	    left_n = n ;  
-	    var run = setInterval(function(){
-		     current += x ;  
-			 left -= x ;  
-			 
-			 if(Math.abs(current) >= width*Math.abs(left_n)){
-			     banner_panel.style.left = n_ - width*Math.abs(left_n)+'px' ; 
-				 n_ -= width*Math.abs(left_n);  
-				 left = n_ ;  
-				 current = 0 ; 
-				 banner_centerDivs[index].style.backgroundColor = 'aquamarine' ; 
-				 index += n ;  
-				 if(index>=len){
-				 	index = len-1 ; 
-				 }
-				 banner_centerDivs[index].style.backgroundColor = 'blue' ; 
-				 clearInterval(run) ; 
-				 running = false ;  
-			 }else{
-				 banner_panel.style.left = left+'px' ; 
-			 }
-		}, 1) ; 
-	   }
-	  running = false ;  
-	}
-	 
-	var leftMove = function(n,x){
-		 
-		if(index>0){
-		  left_n = n ;
-		 
-			var run = setInterval(function(){
-				 current += x ; 
-				 left += x ;  
+	  if(run == null){
+			console.log(run) ; 
+			
+		  if(index>=len-1){
+			index = 0 ; 
+			left = 0 ; 
+			n_ = 0 ; 
+			banner_centerDivs[index].style.backgroundColor = 'blue' ; 
+			banner_centerDivs[len-1].style.backgroundColor = 'aquamarine' ; 
+			banner_panel.style.left = 0+'px' ; 
+		  }else{
+			left_n = n ;  
+			run = setInterval(function(){
+				 current += x ;  
+				 left -= x ;  
+				 
 				 if(Math.abs(current) >= width*Math.abs(left_n)){
-					 banner_panel.style.left = n_ + width*Math.abs(left_n)+'px' ; 
-					 n_ += width*Math.abs(left_n);  
+					 banner_panel.style.left = n_ - width*Math.abs(left_n)+'px' ; 
+					 n_ -= width*Math.abs(left_n);  
 					 left = n_ ;  
 					 current = 0 ; 
 					 banner_centerDivs[index].style.backgroundColor = 'aquamarine' ; 
-					 index -= n ;  
+					 index += n ;  
+					 if(index>=len){
+						index = len-1 ; 
+					 }
 					 banner_centerDivs[index].style.backgroundColor = 'blue' ; 
-					if(index<0){
-						index = 0 ; 
-					}
 					 clearInterval(run) ; 
-				}else{
+					 run = null ; 
+				 
+				 }else{
 					 banner_panel.style.left = left+'px' ; 
 				 }
 			}, 1) ; 
-		}else {
-			index = len-1 ;
-			left = -(width * (len-1)) ; 
-			n_ = left ; 
-			banner_centerDivs[len-1].style.backgroundColor = 'blue' ; 
-			banner_centerDivs[0].style.backgroundColor = 'aquamarine' ; 
-			banner_panel.style.left = left+'px' ; 
-		}  
-		
-		running = false ;  
+		   }
+		 
+		 }
+//	 
+	}
+	 
+	var leftMove = function(n,x){
+	  if(run==null){
+			console.log(run) ; 
+			if(index>0){
+			  left_n = n ;
+			 
+			  run = setInterval(function(){
+					 current += x ; 
+					 left += x ;  
+					 if(Math.abs(current) >= width*Math.abs(left_n)){
+						 banner_panel.style.left = n_ + width*Math.abs(left_n)+'px' ; 
+						 n_ += width*Math.abs(left_n);  
+						 left = n_ ;  
+						 current = 0 ; 
+						 banner_centerDivs[index].style.backgroundColor = 'aquamarine' ; 
+						 index -= n ;  
+						 banner_centerDivs[index].style.backgroundColor = 'blue' ; 
+						if(index<0){
+							index = 0 ; 
+						}
+						 clearInterval(run) ; 
+						 run = null ; 
+					}else{
+						 banner_panel.style.left = left+'px' ; 
+					 }
+				}, 1) ; 
+			}else {
+				index = len-1 ;
+				left = -(width * (len-1)) ; 
+				n_ = left ; 
+				banner_centerDivs[len-1].style.backgroundColor = 'blue' ; 
+				banner_centerDivs[0].style.backgroundColor = 'aquamarine' ; 
+				banner_panel.style.left = left+'px' ; 
+			}  
+			
+		 
+		  }
 	}
 	
 	banner_left.onclick = function(e){
-		e = e ; 
-		if(!running){
-			running = true ; 
-			leftMove(1,x) ; 
-		}
+	   leftMove(1,x) ; 
     }
 	
 	banner_right.onclick = function(e){
-		e = e ; 
-		if(!running){
-			running = true ; 
-			rightMove(1,x) ; 
-		}
-	}
+	   rightMove(1,x) ; 
+    }
 	
 	for(var i = 0 ; i < len ; i++){
 	  var sec = secs[i] ; 
@@ -141,16 +142,12 @@ var banner =  function(n){
 	
 	if(n==true){ 
 		 setInterval(function(){
-		    if(!running){
-		 		running = true ; 
-			    rightMove(1 , x) ; 
-				if(index>len-1){
-				  index = 0 ; 
-				}
-			}
+		     rightMove(1 , x) ; 
 		 } , 2000) ; 
 	 }
 }  ; 
+
+
 
 
 
