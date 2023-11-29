@@ -25,6 +25,7 @@ var banner =  function(n){
     var secs = banner_panel.getElementsByTagName('div') ; 
 	const len = secs.length ; 
 	
+	var count = 0 ; 
 	for(var i = 0 ; i < len ; i++){
 		var div = document.createElement('div') ; 
 		div.innerHTML = i+1+'' ; 
@@ -88,8 +89,8 @@ var banner =  function(n){
 				 }
 			}, 1) ; 
 		   }
-		 
-		 }
+		 count = 0  ; 
+	   }
 //	 
 	}
 	 
@@ -128,15 +129,15 @@ var banner =  function(n){
 				banner_panel.style.left = left+'px' ; 
 			}  
 			
-		 
-		  }
+		 count = 0  ; 
+	   }
 	}
 	
-	banner_left.onclick = function(e){
+	banner_left.onclick = function(){
 	   leftMove(1,x) ; 
     }
 	
-	banner_right.onclick = function(e){
+	banner_right.onclick = function(){
 	   rightMove(1,x) ; 
     }
 	
@@ -148,8 +149,11 @@ var banner =  function(n){
 	
 	if(n==true){ 
 		 setInterval(function(){
-		     rightMove(1 , x) ; 
-		 } , 2000) ; 
+			 count++ ; 
+		     if(count>=2000){
+		      rightMove(1 , x) ; 
+			}
+		 } , 2) ; 
 	 }
 }  ; 
 
