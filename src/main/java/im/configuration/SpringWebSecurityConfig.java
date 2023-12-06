@@ -48,12 +48,11 @@ public class SpringWebSecurityConfig {
 
 	@Bean
 	DaoAuthenticationProvider daoAuthenticationProvider() {
-		UserDaoAuthenticationProvider authenticationProvider 
-	    = new UserDaoAuthenticationProvider() ;  
-	 authenticationProvider.setHideUserNotFoundExceptions(false) ; 
-	 authenticationProvider.setUserDetailsService(userDetailsService) ; 
-	 authenticationProvider.setPasswordEncoder(password()) ; 
-	 
+	  UserDaoAuthenticationProvider authenticationProvider 
+	         = new UserDaoAuthenticationProvider() ;  
+	  authenticationProvider.setHideUserNotFoundExceptions(false) ; 
+	  authenticationProvider.setUserDetailsService(userDetailsService) ; 
+	  authenticationProvider.setPasswordEncoder(password()) ; 
 	 return authenticationProvider ; 
 	}
 	
@@ -75,18 +74,19 @@ public class SpringWebSecurityConfig {
 						successHandler(userAuthenticationSuccessHandler).
 						failureHandler(authenticationFailureHandler).permitAll()) ;  
 	 	 http.authorizeHttpRequests((authorize) -> authorize.requestMatchers("/items").hasAnyAuthority("USER")) ; 
-	 	 http.authorizeHttpRequests((authorize) -> authorize.requestMatchers("/manager/*").hasAnyAuthority("MANAGER")) ; 
+	 	 http.authorizeHttpRequests((authorize) -> authorize.requestMatchers("/user/*").hasAnyAuthority("USER")) ; 
+	 	 http.authorizeHttpRequests((authorize) -> authorize.requestMatchers("/user/manager/*").hasAnyAuthority("MANAGER")) ; 
 	 	 http.authorizeHttpRequests((authorize) -> authorize.anyRequest().permitAll()) ; 
 		 http.exceptionHandling((customizer)->customizer.accessDeniedPage("/unauth")) ;
 
 		 http.logout(out->out.logoutUrl("/out").logoutSuccessUrl("/")) ; 
-	  // http.authorizeHttpRequests(cust->cust.requestMatchers("/date").hasAnyAuthority("USER")) ; 
+	    // http.authorizeHttpRequests(cust->cust.requestMatchers("/date").hasAnyAuthority("USER")) ; 
 		 http.rememberMe(remember->remember.tokenRepository(jdbcTokenRepositoryImpl()).
 		 		 tokenValiditySeconds(120).userDetailsService(userDetailsService).
 		 		 authenticationSuccessHandler(userAuthenticationSuccessHandler)) ; 
 		 http.csrf(csrf->csrf.ignoringRequestMatchers("/register/prod")); 
          //  http.headers(cust->cust.frameOptions(c->c.sameOrigin())) ; 
-		 
+
 		 http.authenticationProvider(daoAuthenticationProvider() ) ; 
 	   return http.build(); 
 	}
